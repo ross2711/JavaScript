@@ -1,12 +1,10 @@
 // EXERCISE 1
-
-
 // take the value car from the below array and assign it to a new array called arr2 as its first element.
 // Then console.log arr2.
 // var arr = ['milk','cheese','car','lime']
 
 var arr = ['milk','cheese','car','lime'];
-var arr2 = arr[2];
+var arr2 = [arr[2]];
 
 console.log(arr2);
 
