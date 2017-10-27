@@ -88,11 +88,15 @@ arr.forEach(function(el) {
 var arr = [{name:'Pedrito'}, ['Banana'],false,34,'hello',null,undefined];
 
 arr.forEach(function(el, index) {
-    if (typeof el === 'string') {
-    console.log(true, index);
-  } else {
-    console.log(false, index);
-  }
+  if (typeof el === "string") {
+    console.log('string');
+  } else if (typeof el === "object"){
+    console.log('object');
+  } else if (typeof el === "boolean") {
+    console.log('boolean');
+  } else if (typeof el === "number") {
+    console.log('number');
+  } else console.log('undefined');
 });
 
 // EXERCISE 7
