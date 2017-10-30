@@ -48,6 +48,7 @@ var arr = ['banana','pinapple','orange'];
 
 arr.forEach(function(el, index) {
   console.log('Element is ' + el + ' and Index is ' + index);
+});
 
 // EXERCISE 5
 //write a forEach loop that loops through this example array and checks if the type of each element is a string,
@@ -99,6 +100,8 @@ arr.forEach(function(el, index) {
   } else console.log('undefined');
 });
 
+// IMPROVEDhow
+
 // EXERCISE 7
 //create a forEach loop  that loops thought the array below and for each iteration if the element is divisible by 2, if it is it should print true, and if it isn't it should print false
 //var arr =[1435,656,3234,96747458]
@@ -140,7 +143,7 @@ var sum = 0;
 for (var ele of arr) {
     sum = sum + ele;
 };
-console.log(`the the sum of the elements in the array is ${sum}`);
+console.log(`the sum of the elements in the array is ${sum}`);
 
 // EXERCISE 10
 //Create a forEach loop that loops through the given array and multiplies each element inside it.
@@ -236,8 +239,6 @@ arr.forEach(function(el, i) {
 
 var arr = [10,20,30, '55'];
 var arr2 = [100,20,20, 55];
-var arr = [10,20,30, '55'];
-var arr2 = [100,20,20, 55];
 
 arr.forEach(function(el, i) {
     console.log(el == arr2[i]);
@@ -262,7 +263,11 @@ arr2.forEach(function(el) {
 });
 
 // EXERCISE 17
-//take the original string which will contain some upper case characters, then create a new variable which needs to contain all the caracter of the original string but all have to be lowercase, once you are done console.log the new variable
+//take the original string which will contain some upper
+//case characters, then create a new variable which needs
+//to contain all the caracter of the original string but all
+//have to be lowercase, once you are done console.log the new variable
+
 //You must use:
 //a loop
 //push
@@ -272,7 +277,7 @@ arr2.forEach(function(el) {
 // expected output antonello likes playing games
 
 var origString = 'Antonello LIKEs PlaYing GaMeS';
-var lCase = origString.toLowerCase().split(' ');
+var lCase = origString.toLowerCase();
 
 var final = [];
 for (var i = 0; i < lCase.length; i++) {
@@ -313,7 +318,7 @@ console.log(final.join(''));
 var name = 'Ada Lovelace'
 var fullName = name.split(' ');
 var firstName = fullName[0];
-var secondName = fullName[1][0];
+var secondName = fullName[1][0].toUpperCase();
 var newName = `${firstName} ${secondName}.`
 console.log(newName);
 
@@ -347,11 +352,11 @@ var arr = [
 
 var total = 0;
 arr.forEach(function(el) {
-    total = ((total + el)*0.0089);
+    total = (total + (Number(el))*0.0089);
+console.log(typeof number == Number(el));
 });
 
-var dailyExp = total.toFixed(0);
+var dailyExp = (total/7).toFixed(0);
 
 console.log(`you spent an average of ${dailyExp
 } per day in you trip to Japan.`);
-
