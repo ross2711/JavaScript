@@ -1,0 +1,297 @@
+// block05
+
+// ex 01
+//write a function that takes two arguments, greeting and name.
+//inside the function also declare a variable called sentence and give it a value of 'how are you today?'
+//it should then console.log them in sequence.
+//see expected output...
+
+//expected output//
+
+//greeting name sentence
+//example
+//Hello Mike how are you today?
+
+function greet (greeting, name) {
+  var sentence = 'how are you today?';
+  console.log(greeting + ' ' + name + ' ' + sentence);
+}
+
+greet('Hello', 'Ross');
+
+
+// ex 02
+
+//Write a function called divide that takes two arguments,
+// and divide the second with the first and console.log the result.
+//example 10 / 2 = 5
+//divide(10,2)
+//5
+
+var divide = function (a, b) {
+  result = a / b;
+  console.log(result);
+};
+
+divide(10,2);
+
+// ex03
+
+//write a function called calc that takes 3 arguments the
+// first 2 are numbers and the third is an aritmetic operator,
+// so is either + , -, *, /
+// and it executes the appropriate operation according to the
+// provided aritmetic operator.
+
+// make sure you test your function with all 4 aritmetic
+// operations
+
+//EXAMPLES//
+//calc(10,2,'/')
+//5
+
+//calc(10,2,'+')
+//12
+
+//calc(10,2,'-')
+//8
+
+//calc(10,2,'*')
+//20
+
+var calc = function (a,b,sign) {
+  if (sign == '+') {
+    return a + b ;
+  } else if (sign == '-') {
+    return a - b;
+  } else if (sign == '*') {
+    return a * b;
+  } else if (sign == '/') {
+    return a / b;
+  }
+};
+calc(10,2,'/');
+calc(10,2,'+');
+calc(10,2,'-');
+calc(10,2,'*');
+
+
+// ex04
+//extend our awesome calc function by adding some conditions...
+//in case the third arguments is  / or * and the second argument is not provided it should default to one.
+//in case the third arguments is +  or  - and the second argument is not provided it should default to zero.
+
+//example
+//calc(10,"/")  //10
+//calc (30,"*") //30
+//calc (2,"+")  //2
+//calc (3,"-")  //3
+
+var calc = function (a,b,sign) {
+
+  if (b == '/' && sign == 'undefined'|| b == '*' && sign == 'undefined') {
+    // debugger;
+    b = 1;
+
+  }
+  else if (b == '+' && sign == 'undefined'|| b == '-' && sign == 'undefined') {
+    // debugger;
+    b = 0;
+    // debugger;
+  }
+
+  if (sign == '+') {
+    // debugger;
+    return a + b ;
+  } else if (sign == '-') {
+    // debugger;
+    return a - b;
+  } else if (sign == '*') {
+    // debugger;
+    return a * b;
+  } else if (sign == '/') {
+    // debugger;
+    return a / b;
+  }
+};
+
+calc(10,"/"); //10
+calc (30,"*"); //30
+calc (2,"+");  //2
+calc (3,"-");  //3
+
+
+
+
+
+
+
+//   if (b == 'undefined') {
+//     if (sign == '/' || sign == '*') {
+//       b = 1;
+//     } else if (sign == '+' || sign == '-') {
+//       b = 0;
+//     }
+//   }
+
+//   // if (sign == ('/' || '*') && b == undefined) {
+//   //   b == 1;
+//   // }
+//   // if (sign == ('+' || '-') && b == undefined) {
+//   //   b == 1;
+//   // }
+
+//   if (sign == '+') {
+//     console.log(a + b);
+//   } else if (sign == '-') {
+//     console.log(a - b);
+//   } else if (sign == '*') {
+//     console.log(a * b);
+//   } else if (sign == '/') {
+//     console.log(a / b);
+//     }
+// };
+
+
+
+
+// var calc = function (a,b,sign) {
+//   console.log('a:', a);
+//   console.log('b:', b);
+//   console.log('sign:', sign);
+
+//   if (b == 'undefined') {
+//     if (sign == '/' || sign == '*') {
+//       b = 1;
+//     } else if (sign == '+' || sign == '-') {
+//       b = 0;
+//     }
+//   }
+
+//   // if (sign == ('/' || '*') && b == undefined) {
+//   //   b == 1;
+//   // }
+//   // if (sign == ('+' || '-') && b == undefined) {
+//   //   b == 1;
+//   // }
+
+//   if (sign == '+') {
+//     console.log(a + b);
+//   } else if (sign == '-') {
+//     console.log(a - b);
+//   } else if (sign == '*') {
+//     console.log(a * b);
+//   } else if (sign == '/') {
+//     console.log(a / b);
+//     }
+// };
+
+
+// ex 05
+
+var arr  = ['12','true','false','hello',12,true,undefined,false]
+var arr2 = ["banana",'true',['ciao'],12,'gennaro olivieri',true]
+var arr3 = [12,13,54,true,'false']
+
+//write a function that loops through the above arrays and check the typeof of each element,
+// and counts how many occurrencies of booleans and strings there are, then it console.log their
+// number in a sentence like in the below example.
+//if the typeof the element is not a string nor a boolena it will be considered unknown.
+//examples
+
+//EXAMPLES
+// checkTypeOf(arr)
+//there are 2 booleans and 4 strings in the array and 2 unknown elements
+// checkTypeOf(arr2)
+//there are 1 booleans and 3 strings in the array and 1 unknown element
+// checkTypeOf(arr3)
+//there are 1 booleans and 1 string in the array and 3 unknown elements
+
+var arr  = ['12','true','false','hello',12,true,undefined,false]
+var arr2 = ["banana",'true',['ciao'],12,'gennaro olivieri',true]
+var arr3 = [12,13,54,true,'false']
+
+var boolCounter = 0;
+var stringCounter = 0;
+var unknown = 0;
+
+function checkTypeOf (arr) {
+  arr.forEach(function(ele) {
+    if (typeof ele == 'boolean') {
+      boolCounter ++;
+    } else if (typeof ele == 'string') {
+      stringCounter ++;
+    } else {
+      unknown ++;
+    }
+  });
+  console.log(`there are ${boolCounter} booleans and ${stringCounter} strings in the array and ${unknown} unknown elements`);
+  boolCounter = 0;
+  stringCounter = 0;
+  unknown = 0;
+}
+
+
+checkTypeOf(arr)
+//there are 2 booleans and 4 strings in the array and 2 unknown elements
+checkTypeOf(arr2)
+//there are 1 booleans and 3 strings in the array and 1 unknown element
+checkTypeOf(arr3)
+//there are 1 booleans and 1 string in the array and 3 unknown elements
+
+
+
+ // ex 6
+
+//Write a function that takes 2 arguments
+// the first will be an array of strings
+// the second  a minumun length value
+//check if the length of each element in the array is at least as long as
+// the value of the second argument passed.(minumun length value)
+//in the end console.log how many elements have a length equal or longer
+// than the minumun length value and are therefore approved and how many are not.
+
+// var arr  = ['banana','salame','cheese','coke']
+// var arr1 = ['george','pane','mortadella','spaghetti','pesto']
+// var arr2 = ['bread','butter','peanuts','nutella']
+
+// then call your function as below and you should get the expected output
+// checkLength(arr, 5)
+//expected output
+//there are 3 approved items and 1 rejected items in the provided array
+// checkLength(arr1,7)
+//expected output
+//there are 2 approved items and 3 rejected items in the provided array
+// checkLength(arr2,3)
+//expected output
+//there are 4 approved items and 0 rejected items in the provided array
+
+
+var arr  = ['banana','salame','cheese','coke']
+var arr1 = ['george','pane','mortadella','spaghetti','pesto']
+var arr2 = ['bread','butter','peanuts','nutella']
+
+function
+
+
+
+
+
+
+
+// then call your function as below and you should get the expected output
+checkLength(arr, 5)
+//expected output
+//there are 3 approved items and 1 rejected items in the provided array
+checkLength(arr1,7)
+//expected output
+//there are 2 approved items and 3 rejected items in the provided array
+checkLength(arr2,3)
+//expected output
+//there are 4 approved items and 0 rejected items in the provided array
+
+
+
+
+
+

@@ -248,7 +248,7 @@ console.log(`there are ${totalCapitals} capitals in this word`);
 var arr = ['banana', '34', '68', [12], {
   number: 14
 }, 'one', 'two', '14', 54]
-var number = '';
+
 arr.forEach(function(ele) {
   if (Number(ele)) { //check if it can be converted to number
     console.log(Number(ele));
@@ -270,16 +270,16 @@ arr.forEach(function(ele) {
 //expected output
 //there are 4 people in the list and the ages are 33,43,21,43
 
-var approved = []
-var ages = [12, 33, 12, 43, 99, 11, 5, 21, 43]
+var approved = [];
+var ages = [12, 33, 12, 43, 99, 11, 5, 21, 43];
 
 ages.forEach(function(el) {
   if (el >= 21 && el <= 65) {
     approved.push(el);
   }
-})
+});
 
-console.log(approved);
+console.log(`There are ${approved.length} people in the list and the ages are: ${approved}`);
 
 // EXERCISE 9
 //Create an empty array (arr) and then create a loop that loops through another
@@ -315,12 +315,18 @@ console.log(`There are ${arr.length} odd numbers under 30 in our array (${arr.le
 //the lengths of the strings are 5,4,6, there are 2 non string elements in our array and these are (2) [34, true]
 
 var arr = ['mario', 'john', 34, true, 'banana'];
-var len;
-arr.forEach(function(el, i) {
-  len = el.length;
-  console.log(`Array Position ${i}: ${len}`);
+var newArr = [];
+var strings = [];
+
+arr.forEach(function(el) {
+  if (typeof el == 'string') {
+  strings.push(el.length)
+  } else {
+    newArr.push(el);
+  }
 });
 
+console.log(`the lengths of the strings are ${strings} there are ${newArr.length} non string elements in our array and these are ${newArr}.`);
 
 // EXERCISE 11
 
@@ -342,10 +348,10 @@ var bool = [];
 var maxCapacity = 5;
 
 arr.forEach(function(el) {
-  if (el <= maxCapacity && typeof el == 'boolean') {
+  if (bool.length < maxCapacity && typeof el == 'boolean') {
     bool.push(el);
   }
-})
+});
 
 console.log(bool);
 
@@ -374,7 +380,7 @@ var removed = [];
 var uniqueCounter = 0;
 var removeCounter = 0;
 arr.forEach(function(el) {
-  if (unique.indexOf(el) == -1) {
+  if (unique.indexOf(el) == -1) { // if search never occurs
     unique.push(el);
   } else {
     removed.push(el);
@@ -412,7 +418,7 @@ var arr = [
 var unique = [];
 
 arr.forEach(function(el) {
-  if (el = Number(el)) {
+  if (typeof el == 'number') {
     if (unique.indexOf(el) == -1 && el > 10) {
       unique.push(el);
     }
@@ -449,7 +455,11 @@ var newOutput = output.join('');
 console.log(newOutput);
 
 
+
+
 // EXERCISE 15
+
+function gameStart(argument) {
 
 var guessedCorrectly = false;
 var randNum = Math.floor(Math.random() * 100) + 1;
@@ -460,7 +470,7 @@ var message = "Guess a number between 1 and 100 ... you only have 5 guesses!";
 do {
   playerGuess = parseInt(prompt(message));
   allowedGuesses--;
-  if (isNaN(playerGuess) || playerGuess < 1 || playerGuess > 100) // check for illegal entry
+  if (isNaN(playerGuess) || playerGuess < 1 || playerGuess > 100)
     message = "sorry I dont recognise that entry, try again... you have " + allowedGuesses;
   else if (playerGuess > randNum)
     message = "number is too big, you have " + allowedGuesses + " guesses left";
@@ -476,3 +486,13 @@ do {
 if (!guessedCorrectly) {
   alert("YOU LOSE !! - sorry, you didn't guess correctly... the correct number was " + randNum);
 }
+
+}
+
+
+// can this
+// var randNum=(min, max)=>Math.floor(Math.random()*(max - min + 1))+min;
+// var randNum(0,100);
+
+
+
