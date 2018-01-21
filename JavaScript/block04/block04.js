@@ -328,20 +328,21 @@ arr.forEach(function(el) {
 
 console.log(`the lengths of the strings are ${strings} there are ${newArr.length} non string elements in our array and these are ${newArr}.`);
 
+
 // EXERCISE 11
 
 // create an empty array called bool
-//create a variable called maxCapacity
-//and assign to it a value of 5
+// create a variable called maxCapacity
+// and assign to it a value of 5
 // loop through the provided array and every time you find a boolean push it to our
-//bool array until you reach the maxCapacity.
-//then console.log a message as per expected output
+// bool array until you reach the maxCapacity.
+// then console.log a message as per expected output
 
 
 // we filled up our max capacity of 5 with the following booleans true,false,true,false
-//var arr  = ['mike','john',true, false,12,true,false]
+// var arr  = ['mike','john',true, false,12,true,false]
 
-//var bool = [1,2,3,false,'false']
+// var bool = [1,2,3,false,'false']
 
 var arr = ['mike', 'john', true, false, 12, true, false];
 var bool = [];

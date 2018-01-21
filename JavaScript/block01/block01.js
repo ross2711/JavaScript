@@ -1,4 +1,3 @@
-// https://paper.dropbox.com/doc/Block-01-variables-comparison-operators-console.log-prompt-alert-1KfyLgTIKJH81EPN2yjPK
 
 // EXERCISE 1
 
@@ -153,11 +152,8 @@ var num6 =  0;
 var num7 =  0;
 
 console.log(num !== num1);
-
 console.log(num2 !== num3);
-
 console.log(num4 !== num5);
-
 console.log(num6 !== num7);
 
 
@@ -229,10 +225,10 @@ document.write('You have lived for ' + totalDays + ' days already!');
 // EXERCISE 11
 
 //It's hot out! Let's make a converter based on the steps here.
-    //- Store a celsius temperature into a variable.
-    //- Convert it to fahrenheit and output "NN°C is NN°F".
-    //- Now store a fahrenheit temperature into a variable.
-    //- Convert it to celsius and output "NN°F is NN°C."
+//- Store a celsius temperature into a variable.
+//- Convert it to fahrenheit and output "NN°C is NN°F".
+//- Now store a fahrenheit temperature into a variable.
+//- Convert it to celsius and output "NN°F is NN°C."
 
 var celsius = 32;
 var fahrenheit = (celsius * 9) / 5 + 32;

@@ -57,11 +57,11 @@ arr.forEach(function(el, index) {
 //at the same time it needs to print out the indexes of all iterations so that we can see which of them returned true!
 // var arr = ['banana',['hello'],12,true]
 // arr.forEach(function(ele, i) {
-//         if (ele.constuctor == String) {
-//                 console.log(true, i)
-//         } else {
-//                 console.log(false, i)
-//         }
+//    if (ele.constuctor == String) {
+//      console.log(true, i)
+//    } else {
+//      console.log(false, i)
+//   }
 // })
 //expected output
 //true 0

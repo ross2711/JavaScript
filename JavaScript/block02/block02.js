@@ -157,9 +157,9 @@ console.log(word);
 
 // EXERCISE 16
 
-var one   = {name:'antonello'};
-var two   = ['name', 'antonello'];
-var three = [[],[],{},"antonello",3,function(){}];
+var one   = {name:'Ross'};
+var two   = ['name', 'Ross'];
+var three = [[],[],{},"Ross",3,function(){}];
 
 console.log(Array.isArray(one));
 console.log(Array.isArray(two));

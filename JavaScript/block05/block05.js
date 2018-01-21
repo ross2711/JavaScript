@@ -25,7 +25,7 @@ greet('Hello', 'Ross');
 //5
 
 var divide = function(a, b) {
-  result = a / b;
+  var result = a / b;
   console.log(result);
 };
 
@@ -85,17 +85,17 @@ calc(10,2,'*');
 
 var calc = function(a, b, sign) {
   if (b == '/' && (!sign)) {
+    sign = b;
     b = 1;
-    sign = '/';
   } else if (b == '*' && (!sign)) {
+    sign = b;
     b = 1;
-    sign = '*';
   } else if (b == '+' && (!sign)) {
+    sign = b;
     b = 0;
-    sign = '+';
   } else if (b == '-' && (!sign)) {
+    sign = b;
     b = 0;
-    sign = '-';
   }
   return calcTwo(a, b, sign);
 };
@@ -161,7 +161,6 @@ function checkTypeOf(arr) {
   stringCounter = 0;
   unknown = 0;
 }
-
 
 checkTypeOf(arr);
 //there are 2 booleans and 4 strings in the array and 2 unknown elements
@@ -271,6 +270,34 @@ tellAge(2,11,1982);
 tellAge(2,7,1984);
 //you are 33 years old
 
+// another method
+// function tellAge(day,month,year) {
+//   var today = new Date()
+//   var dd = today.getDate()
+//   var mm = today.getMonth()+1
+//   var yy = today.getFullYear()
+//   today = (dd,mm,yy)
+//   if (month > mm) {
+//     var age = yy - year -1
+//     return age
+//   }if (month < mm) {
+//     var age = yy - year
+//     return age
+//   }if (month == mm) {
+//     if (day > dd) {
+//       var age = yy - year -1
+//       return age
+//     }if (day <= dd){
+//       var age = yy - year
+//       return age
+//     }
+//   }
+// }
+// tellAge(14,10,1990)
+// tellAge(14,11,1990)
+// tellAge(2,8,1982)
+
+
 
 // ex8
 // write a function called checkAge
@@ -297,13 +324,13 @@ function checkAge(birth_day, birth_month, birth_year) {
 
   var personAge = tellAge(birth_day, birth_month, birth_year);
   if (personAge < minDriveAge) {
-    console.log(`sorry you are too young to drink or drive!`);
+    return `sorry you are too young to drink or drive!`;
   }
   if (personAge >= minDriveAge && personAge < minDrinkAge) {
-    console.log(`You are ${personAge} years old therefore old enough to drive but not to drink`);
+    return `You are ${personAge} years old therefore old enough to drive but not to drink`;
   }
-  if (personAge >= minDriveAge && personAge >= minDrinkAge) {
-    console.log(`You are ${personAge} years old therefore old enough to drink and drive`);
+  if (personAge >= minDrinkAge) {
+    return `You are ${personAge} years old therefore old enough to drink and drive`;
   }
 }
 
@@ -337,6 +364,7 @@ checkAge(10, 11, 2005);
 
 
 function checkAge(birth_day, birth_month, birth_year) {
+  var date = new Date();
   var currentMonth = 10;
   var currentDate = 31;
   var monthDays = 30;
@@ -351,6 +379,7 @@ function checkAge(birth_day, birth_month, birth_year) {
     var months = birth_month - currentMonth - 1;
     var currentMonthDays = monthDays - currentDate;
     var totalDays = currentMonthDays + birth_day;
+
     if (totalDays > monthDays) {
       months++;
       totalDays = totalDays - monthDays;
@@ -413,10 +442,10 @@ function dollarsConverter(cash, cur) {
   if (cash && cur) {
     // debugger
     if (cur == 'euro') {
-      var totalEuro = Math.round(cash * euroExch);
+      var totalEuro = Math.round(cash / euroExch);
       return `You will receive ${totalEuro} euro in exchange for your ${cash} dollars`;
     } else if (cur == 'pounds') {
-      var totalPound = Math.round(cash * poundExch);
+      var totalPound = Math.round(cash / poundExch);
       return `You will receive ${totalPound} pounds in exchange for your ${cash} dollars`;
     }
   }
@@ -477,17 +506,12 @@ runOnRange(addOne, {
 })
 // nothing should be console.logged in this case!
 
-// solution...
 
-var addOne = function(num) {
-  return num + 1;
+function addOne () {
+  return 1;
 };
 
 function runOnRange(addOne, obj) {
-  function addOne() {
-    return 1;
-  };
-
   var start = obj.start + addOne();
   var end = obj.end;
   var step = obj.step;
@@ -523,7 +547,6 @@ function stringChop(str, chunk) {
   var result = [];
   for (var i = 0; i < str.length; i += chunk) {
     result.push(str.substr(i, chunk));
-    console.log('here', str);
   }
   return result;
 }
@@ -595,7 +618,6 @@ function playGame(arg) {
   playAgain();
 
   function playAgain() {
-    // alert("sorry I dont recognise that entry??");
     userChoice = prompt("Play again  (yes  or  no)");
     if (userChoice == 'yes') {
       playGame(); // restart game
